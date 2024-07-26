@@ -1,0 +1,26 @@
+name: Build a package and deploy to a Martini instance
+
+on: [push]
+
+jobs:
+  build_deploy:
+    name: Builds and deploys a package
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: torocloud/martini-upload-package-action@v1
+        with:
+          base_url: ${{ vars.MARTINI_BASE_URL }}
+          user_name: ${{ secrets.MARTINI_USER_NAME }}
+          user_password: ${{ secrets.MARTINI_USER_PASSWORD }}
+          package_dir: packages/sample-package
+
+  execute_api:
+    name: Tests the deployed API
+    needs: [build_deploy]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Execute an HTTP request
+        run: curl -s ${{ vars.MARTINI_BASE_URL }}/api/greeting?name=Neo
