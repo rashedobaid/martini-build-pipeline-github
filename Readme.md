@@ -49,11 +49,13 @@ This workflow automates building and pushing a Docker image that includes a Mart
 - **Location**: `.github/workflows/build_docker.yml`  
 
 **Steps:**
+
 1. Sets up QEMU and Docker Buildx for multi-platform builds.
 2. Builds a Docker image with the Martini package.
 3. Pushes the image to a local Docker registry (`localhost:5000`).
 
 **Example Configuration**:
+
 ```yaml
 uses: docker/build-push-action@v6
 with:
@@ -74,11 +76,13 @@ This workflow zips the Martini package and uploads it as an artifact for reuse.
 - **Location**: `.github/workflows/create_artifact.yml`  
 
 **Steps:**
+
 1. Checks out the repository.
 2. Zips the contents of the `packages/sample-package` directory.
 3. Uploads the zipped package as an artifact named `sample-package`.
 
 **Example Configuration**:
+
 ```yaml
 uses: actions/upload-artifact@v4
 with:
@@ -96,11 +100,15 @@ This workflow uploads a Martini package to a Martini instance and validates its 
 - **Location**: `.github/workflows/deploy.yml`  
 
 **Steps:**
+
 1. Uploads the Martini package using the `martini-upload-package-action` GitHub Action.
 2. Tests the deployment by sending an HTTP request to the Martini instance.
 
 **Secrets and Variables**:
+
 - `MARTINI_BASE_URL`: The base URL of the Martini instance.
+- `MARTINI_CLIENT_ID`: The Client ID of the Martini instance. If omitted, defaults to `TOROMartini`  
+- `MARTINI_CLIENT_SECRET`: The Client Secret of the Martini instance
 - `MARTINI_USER_NAME` and `MARTINI_USER_PASSWORD`: Credentials for authentication.
 
 **Example Configuration**:
@@ -108,6 +116,8 @@ This workflow uploads a Martini package to a Martini instance and validates its 
 uses: torocloud/martini-upload-package-action@v1
 with:
   base_url: ${{ vars.MARTINI_BASE_URL }}
+  client_id: ${{ vars.MARTINI_CLIENT_ID }}
+  client_secret: ${{ vars.MARTINI_CLIENT_SECRET }}
   user_name: ${{ secrets.MARTINI_USER_NAME }}
   user_password: ${{ secrets.MARTINI_USER_PASSWORD }}
   package_dir: packages/sample-package
@@ -120,6 +130,8 @@ with:
 Before using the workflows, ensure the following:
 
 1. **GitHub Secrets**  
+   - `MARTINI_CLIENT_ID`: Martini Client ID. Defaults to `TOROMartini` if unset.
+   - `MARTINI_CLIENT_SECRET`: Martini Client Secret.
    - `MARTINI_USER_NAME`: Martini instance username.  
    - `MARTINI_USER_PASSWORD`: Martini instance password.  
 

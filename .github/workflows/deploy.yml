@@ -12,6 +12,8 @@ jobs:
       - uses: torocloud/martini-upload-package-action@v1
         with:
           base_url: ${{ vars.MARTINI_BASE_URL }}
+          client_id: ${{ vars.MARTINI_CLIENT_ID }}
+          client_secret: ${{ vars.MARTINI_CLIENT_SECRET }}
           user_name: ${{ secrets.MARTINI_USER_NAME }}
           user_password: ${{ secrets.MARTINI_USER_PASSWORD }}
           package_dir: packages/sample-package
