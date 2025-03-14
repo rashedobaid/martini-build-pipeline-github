@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: torocloud/martini-upload-package-action@v1
+      - uses: torocloud/martini-build-package@v1
         with:
           base_url: ${{ vars.MARTINI_BASE_URL }}
           client_id: ${{ secrets.MARTINI_CLIENT_ID }}
