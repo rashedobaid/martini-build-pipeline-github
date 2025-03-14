@@ -112,8 +112,9 @@ This workflow uploads a Martini package to a Martini instance and validates its 
 - `MARTINI_USER_NAME` and `MARTINI_USER_PASSWORD`: Credentials for authentication.
 
 **Example Configuration**:
+
 ```yaml
-uses: torocloud/martini-upload-package-action@v1
+uses: lontiplatform/martini-build-package@v1
 with:
   base_url: ${{ vars.MARTINI_BASE_URL }}
   client_id: ${{ secrets.MARTINI_CLIENT_ID }}
@@ -148,4 +149,4 @@ Before using the workflows, ensure the following:
 
 - [Martini Documentation](https://developer.lonti.com/docs/martini)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [Martini Upload Package Action](https://github.com/torocloud/martini-upload-package-action)
+- [Martini Upload Package Action](https://github.com/lontiplatform/martini-build-package)
