@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: torocloud/martini-upload-package-action@v1
+      - uses: rashedobaid/martini-upload-package-action@Omit-client-secret-and-make-client-id-optional
         with:
           base_url: ${{ vars.MARTINI_BASE_URL }}
           client_id: ${{ vars.MARTINI_CLIENT_ID }}
