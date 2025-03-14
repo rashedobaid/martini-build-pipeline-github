@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: rashedobaid/martini-upload-package-action@Omit-client-secret-and-make-client-id-optional
+      - uses: rashedobaid/martini-build-package@Omit-client-secret-and-make-client-id-optional
         with:
           base_url: ${{ vars.MARTINI_BASE_URL }}
           client_id: ${{ secrets.MARTINI_CLIENT_ID }}
