@@ -1,6 +1,10 @@
 name: Create a package artifact
 
-on: [push]
+on:
+  push:
+    branches:
+      - main  # You can specify branches for push events, e.g., main
+  workflow_dispatch:  # A
 
 jobs:
   build:

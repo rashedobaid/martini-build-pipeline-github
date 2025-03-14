@@ -1,6 +1,10 @@
 name: Build a package and deploy to a Martini instance
 
-on: [push]
+on:
+  push:
+    branches:
+      - main  # You can specify branches for push events, e.g., main
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
 
 jobs:
   build_deploy:
