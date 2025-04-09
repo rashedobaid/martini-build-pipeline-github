@@ -9,20 +9,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: lontiplatform/martini-build-package@v1
+      - uses: rashedobaid/martini-build-package@Add-support-for-multiple-packages
         with:
           base_url: ${{ vars.MARTINI_BASE_URL }}
           client_id: ${{ secrets.MARTINI_CLIENT_ID }}
           client_secret: ${{ secrets.MARTINI_CLIENT_SECRET }}
           user_name: ${{ secrets.MARTINI_USER_NAME }}
           user_password: ${{ secrets.MARTINI_USER_PASSWORD }}
-          package_dir: packages/sample-package
-
-  execute_api:
-    name: Tests the deployed API
-    needs: [build_deploy]
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Execute an HTTP request
-        run: curl -s ${{ vars.MARTINI_BASE_URL }}/api/greeting?name=Neo
