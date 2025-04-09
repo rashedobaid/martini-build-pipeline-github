@@ -11,6 +11,8 @@ jobs:
         run: |
           cd packages
           zip -qr ../sample-package.zip sample-package/*
+          zip -qr ../sample-package2.zip sample-package2/*
+          zip -qr ../sample-package3.zip sample-package3/*
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4

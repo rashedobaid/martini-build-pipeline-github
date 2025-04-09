@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: rashedobaid/martini-build-package@Add-support-for-multiple-packages
+      - uses: rashedobaid/martini-build-package@Support-Multiple-Packages
         with:
           base_url: ${{ vars.MARTINI_BASE_URL }}
           client_id: ${{ secrets.MARTINI_CLIENT_ID }}
