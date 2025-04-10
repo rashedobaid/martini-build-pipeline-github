@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: rashedobaid/martini-build-package@Access-token-authentication
+      - uses: rashedobaid/martini-build-package@Support-for-multiple-packages
         with:
           base_url: ${{ vars.MARTINI_BASE_URL }}
           access_token: ${{ secrets.MARTINI_ACCESS_TOKEN }}
