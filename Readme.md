@@ -86,18 +86,14 @@ This workflow zips the Martini package and uploads it as an artifact for reuse.
 **Example Configuration**:
 
 ```yaml
-steps:
-   - name: Upload sample-package
-     uses: actions/upload-artifact@v4
-     with:
-       name: sample-package
-       path: sample-package.zip
-
-   - name: Upload sample-package
-     uses: actions/upload-artifact@v4
-     with:
-       name: sample-package2
-       path: sample-package2.zip
+uses: actions/upload-artifact@v4
+with:
+  name: sample-package
+  path: sample-package.zip
+  path: |
+    sample-package.zip
+    sample-package2.zip
+    sample-package3.zip
 ```
 
 ---
@@ -124,13 +120,12 @@ This workflow uploads a Martini package to a Martini instance and validates its 
 **Example Configuration**:
 
 ```yaml
-steps:
-   - uses: lontiplatform/martini-build-package@v1.2.0
-     with:
-       base_url: ${{ vars.MARTINI_BASE_URL }}
-       access_token: ${{ secrets.MARTINI_ACCESS_TOKEN }}
-       package_dir: ${{ vars.PACKAGE_DIR }}
-       allowed_packages: ${{ vars.ALLOWED_PACKAGES }}
+uses: lontiplatform/martini-build-package@v1.2.0
+with:
+   base_url: ${{ vars.MARTINI_BASE_URL }}
+   access_token: ${{ secrets.MARTINI_ACCESS_TOKEN }}
+   package_dir: ${{ vars.PACKAGE_DIR }}
+   allowed_packages: ${{ vars.ALLOWED_PACKAGES }}
 ```
 
 ---
