@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Zip the package
         run: |
-          cd ${{ vars.PACKAGE_DIR }}
+          cd "${{ vars.PACKAGE_DIR || 'packages' }}"
           for dir in */ ; do
             zip -qr "../${dir%/}.zip" "$dir"
           done
