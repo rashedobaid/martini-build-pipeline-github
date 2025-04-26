@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: lontiplatform/martini-build-package@v1.2.0
+      - uses: lontiplatform/martini-build-package@v1
         with:
           base_url: ${{ vars.MARTINI_BASE_URL }}
           access_token: ${{ secrets.MARTINI_ACCESS_TOKEN }}
