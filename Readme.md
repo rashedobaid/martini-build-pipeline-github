@@ -118,10 +118,10 @@ This workflow uploads a Martini package to a Martini instance and validates its 
 ```yaml
 uses: lontiplatform/martini-build-package@v1
 with:
-   base_url: ${{ vars.MARTINI_BASE_URL }}
-   access_token: ${{ secrets.MARTINI_ACCESS_TOKEN }}
-   package_dir: ${{ vars.PACKAGE_DIR }}
-   allowed_packages: ${{ vars.ALLOWED_PACKAGES }}
+  base_url: ${{ vars.MARTINI_BASE_URL }}
+  access_token: ${{ secrets.MARTINI_ACCESS_TOKEN }}
+  package_dir: ${{ vars.PACKAGE_DIR }}
+  allowed_packages: ${{ vars.ALLOWED_PACKAGES }}
 ```
 
 ---
