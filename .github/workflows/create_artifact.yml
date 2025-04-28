@@ -11,7 +11,7 @@ jobs:
       - name: Upload sample-package
         uses: actions/upload-artifact@v4
         with:
-          name: sample-package.zip
+          name: sample-package
           path: ${{ vars.PACKAGE_DIR || 'packages' }}/sample-package
 
       - name: Upload sample-package2
