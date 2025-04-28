@@ -14,8 +14,20 @@ jobs:
             zip -qr "../${dir%/}.zip" "$dir"
           done
 
-      - name: Archive production artifacts
+      - name: Upload sample-package
         uses: actions/upload-artifact@v4
         with:
-          name: Package artifacts
-          path: '*.zip'
+          name: sample-package.zip
+          path: sample-package.zip
+
+      - name: Upload sample-package2
+        uses: actions/upload-artifact@v4
+        with:
+          name: sample-package2.zip
+          path: sample-package2.zip
+
+      - name: Upload sample-package3
+        uses: actions/upload-artifact@v4
+        with:
+          name: sample-package3.zip
+          path: sample-package3.zip

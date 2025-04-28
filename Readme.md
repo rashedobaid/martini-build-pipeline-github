@@ -88,12 +88,8 @@ This workflow zips the Martini package and uploads it as an artifact for reuse.
 ```yaml
 uses: actions/upload-artifact@v4
 with:
-  name: sample-package
+  name: sample-package.zip
   path: sample-package.zip
-  path: |
-    sample-package.zip
-    sample-package2.zip
-    sample-package3.zip
 ```
 
 ---
